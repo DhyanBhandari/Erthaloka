@@ -39,6 +39,24 @@
     
     <!-- Custom Styles -->
     <style>
+
+body, html {
+    height: 100%;
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+.parallax {
+            background-image: url('assets/images/background-image.jpg'); /* Updated to match existing file */
+            height: 100vh;
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+
+
         /* Custom scrollbar */
         ::-webkit-scrollbar {
             width: 8px;
@@ -79,7 +97,7 @@
         }
           /* Navbar background and text color */
     #mainNav {
-        background-color:#0a2a17 ; /* Dark green background  */
+               background-color: black; /* Dark green background  */
             }
     #mainNav a {
         color: white; /* White text color */
@@ -87,10 +105,10 @@
     #body {
         font-family: 'Poppins', sans-serif;
         color: black;
-        background-color: #0a2a17;
+    
     }
     .about-us {
-        color: white;
+        
         align-content: center;
     }
     @keyframes fadeIn {
@@ -109,25 +127,20 @@
     }
     </style>
 </head>
-<body class="bg-dark-green text-white" id="body">
-    <!-- Navigation -->
-  <!-- Navigation -->
-<nav id="mainNav" class="fixed w-full z-50 bg-white shadow-md transition-all duration-300">
+<body class="bg-dark-green text-white parallax" id="body">
+  
+   <!-- Navigation -->
+   <nav id="mainNav" class="fixed w-full z-50 bg-white shadow-md transition-all duration-300 >
     <div class="container mx-auto px-6 py-4">
         <div class="flex items-center justify-between">
-            <!-- Logo -->
             <a href="#home">
-                <img src="assets/images/logo3.png" alt="Erthaloka Logo" class="w-45 h-8">
+                <img src="assets/images/logo3.png" alt="Erthaloka Logo" class="w-45 h-11">
             </a>
-            
-            <!-- Mobile Menu Button -->
             <button id="menuBtn" class="md:hidden focus:outline-none">
                 <svg class="w-8 h-8 text-green-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16m-16 6h16"/>
                 </svg>
             </button>
-            
-            <!-- Desktop Navigation -->
             <div class="hidden md:flex space-x-8">
                 <a href="#about" class="text-gray-600 hover:text-green-600 transition">About Us</a>
                 <a href="#ecosystem" class="text-gray-600 hover:text-green-600 transition">Ecosystem</a>
@@ -136,8 +149,6 @@
             </div>
         </div>
     </div>
-    
-    <!-- Mobile Navigation -->
     <div id="mobileMenu" class="hidden md:hidden bg-dark-green transition-all duration-500 overflow-hidden max-h-0">
         <div class="px-4 py-2 space-y-2">
             <a href="#about" class="block py-2 text-gray-600 hover:text-green-600">About Us</a>
@@ -147,117 +158,330 @@
         </div>
     </div>
 </nav>
+<!-- Hero Section with Parallax -->
 
-<!-- JavaScript to Toggle Mobile Menu -->
-<script>
-    document.getElementById("menuBtn").addEventListener("click", function() {
-        let menu = document.getElementById("mobileMenu");
-        if (menu.classList.contains("hidden")) {
-            menu.classList.remove("hidden");
-            menu.classList.add("max-h-screen");
-        } else {
-            menu.classList.add("hidden");
-            menu.classList.remove("max-h-screen");
-        }
-    });
-</script>
-
-    <!-- Hero Section -->
-    <section id="home" class="relative h-screen">
-        <source>
-        <video 
-            class="absolute w-full h-full object-cover"
-            autoplay 
-            muted 
-            loop 
-            playsinline
-        >
+<section id="home" class="relative h-screen overflow-visible">
+    <div class="parallax-container absolute w-full h-full overflow-hidden">
+        <video class="absolute w-full h-full object-cover" autoplay muted loop playsinline>
             <source src="assets/videos/hero-background.mp4" type="video/mp4">
         </video>
         
-        <div class="video-overlay absolute inset-0"></div>
-        
-        <div class="relative h-full flex items-center justify-center text-center">
-            <div class="container mx-auto px-6">
-                <img src="assets\images\Group-Photo.jpg" alt="Hero Image" class="absolute inset-0 w-full h-full object-cover">
-                <div id="heroLottie" class="w-32 h-32 mx-auto mb-8"></div>
+    </div>
+    <div class="relative h-full flex items-center justify-center text-center">
+        <div class="container mx-auto px-6 flex flex-col md:flex-row items-center">
+            <!-- Left Side - Text -->
+            <div class="md:w-1/2">
+                <div id="heroLottie" class="w-32 h-38 mx-auto mb-8"></div>
                 <div class="relative z-10 text-border">
-                    <h1 class="text-2xl md:text-5xl font-bold text-white mb-6 text-shadow">
-                        A Co-ExIStic 
-                        Universe Beyond Sustainability, 
-                        Where People, Planet & Purpose Thrive
+                    <h1 class="text-xl md:text-3xl font-bold text-white mb-8 mb-12 text-shadow leading-tight">
+                        A Co-ExIStic Universe Beyond Sustainability, Where People, Planet & Purpose Thrive
                     </h1>
-                    <p class="text-xl md:text-4xl text-white mb-12 mt-8 md-12 text-shadow"> Collaborative | Experimental | Innovative | Self-Sustainable | Holistic  </p>
+                    <p class="text-l md:text-2xl text-white mb-12 mt-8 md-12 text-shadow">
+                        Collaborative | Experimental | Innovative | Self-Sustainable | Holistic
+                    </p>
                     <div class="flex flex-col md:flex-row justify-center gap-4">
-                        <button 
-                        onclick="window.location.href='https://chat.whatsapp.com/LUlrfRH2c17A2PmHAUaajl'"
-                        class="bg-green-600 text-white px-8 py-3 rounded-full hover:bg-green-700 transition-colors"
-                    >
-                        Join the Movement
-                    </button>
-                    
-                        <!--
-                        button for learn more
-                        <button 
-                            onclick="scrollToSection('about')"
-                            class="bg-transparent border-2 border-white text-white px-8 py-3 rounded-full hover:bg-white hover:text-green-600 transition-colors"
-                        >
-                            Learn More
-                        </button> 
-                        -->
-                        
-                      
+                        <button onclick="window.location.href='https://chat.whatsapp.com/LUlrfRH2c17A2PmHAUaajl'" class="bg-green-600 text-white px-8 py-3 rounded-full hover:bg-green-700 transition-colors relative overflow-hidden group">
+                            <span class="relative z-10">Join the Movement</span>
+                            <span class="absolute inset-0 bg-green-700 transform scale-x-0 origin-left transition-transform duration-300 group-hover:scale-x-100"></span>
+                        </button>
                     </div>
-               </div>
+                </div>
+            </div>
+
+            <!-- Right Side - Cards -->
+            <div class="md:w-1/2 grid grid-cols-2 gap-6 mt-8 md:mt-0">
+                <a href="live.html" class="card bg-black bg-opacity-80 backdrop-filter backdrop-blur-md text-white p-6 rounded-lg shadow-xl transition-all duration-500 hover:transform hover:scale-105 hover:rotate-1 hover:bg-opacity-90 overflow-hidden cursor-pointer">
+                    <div class="card-content relative z-10">
+                        <div class="card-icon mb-4 text-green-400">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                            </svg>
+                        </div>
+                        <h2 class="text-2xl font-bold mb-3 tracking-wide">Live</h2>
+                        <p class="text-sm leading-relaxed text-gray-200">Experience a balanced life through meaningful connections and holistic growth.</p>
+                    </div>
+                    <div class="card-bg absolute inset-0 bg-gradient-to-br from-green-900 to-green-700 opacity-0 transition-opacity duration-500"></div>
+                </a>
+                
+                <a href="learn.html" class="card bg-black bg-opacity-80 backdrop-filter backdrop-blur-md text-white p-6 rounded-lg shadow-xl transition-all duration-500 hover:transform hover:scale-105 hover:rotate-1 hover:bg-opacity-90 overflow-hidden delay-100 cursor-pointer">
+                    <div class="card-content relative z-10">
+                        <div class="card-icon mb-4 text-blue-400">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                            </svg>
+                        </div>
+                        <h2 class="text-2xl font-bold mb-3 tracking-wide">Learn</h2>
+                        <p class="text-sm leading-relaxed text-gray-200">Gain knowledge and skills to empower yourself and others.</p>
+                    </div>
+                    <div class="card-bg absolute inset-0 bg-gradient-to-br from-blue-900 to-blue-700 opacity-0 transition-opacity duration-500"></div>
+                </a>
+                
+                <a href="earn.html" class="card bg-black bg-opacity-80 backdrop-filter backdrop-blur-md text-white p-6 rounded-lg shadow-xl transition-all duration-500 hover:transform hover:scale-105 hover:rotate-1 hover:bg-opacity-90 overflow-hidden delay-200 cursor-pointer">
+                    <div class="card-content relative z-10">
+                        <div class="card-icon mb-4 text-purple-400">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                        </div>
+                        <h2 class="text-2xl font-bold mb-3 tracking-wide">Earn</h2>
+                        <p class="text-sm leading-relaxed text-gray-200">Achieve financial independence through community-driven opportunities.</p>
+                    </div>
+                    <div class="card-bg absolute inset-0 bg-gradient-to-br from-purple-900 to-purple-700 opacity-0 transition-opacity duration-500"></div>
+                </a>
+                
+                <a href="develop.html" class="card bg-black bg-opacity-80 backdrop-filter backdrop-blur-md text-white p-6 rounded-lg shadow-xl transition-all duration-500 hover:transform hover:scale-105 hover:rotate-1 hover:bg-opacity-90 overflow-hidden delay-300 cursor-pointer">
+                    <div class="card-content relative z-10">
+                        <div class="card-icon mb-4 text-amber-400">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
+                            </svg>
+                        </div>
+                        <h2 class="text-2xl font-bold mb-3 tracking-wide">Develop</h2>
+                        <p class="text-sm leading-relaxed text-gray-200">Build and enhance your potential with cutting-edge resources.</p>
+                    </div>
+                    <div class="card-bg absolute inset-0 bg-gradient-to-br from-amber-900 to-amber-700 opacity-0 transition-opacity duration-500"></div>
+                </a>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
+
+<style>
+    html, body {
+        scroll-behavior: smooth;
+    }
+    
+    .parallax-container {
+        position: fixed;
+        top: 0;
+        z-index: -1;
+    }
+    
+    .video-overlay {
+        background: rgba(0, 0, 0, 0.6);
+        z-index: 1;
+    }
+    
+    .text-shadow {
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    }
+    
+    .card {
+        position: relative;
+        opacity: 0;
+        transform: translateY(30px);
+        transition: opacity 0.5s ease, transform 0.5s ease, box-shadow 0.3s ease;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    .card.show {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    
+    .card:hover {
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3), 0 10px 10px rgba(0, 0, 0, 0.2);
+    }
+    
+    .card:hover .card-bg {
+        opacity: 0.3;
+    }
+    
+    .card:hover .card-icon {
+        transform: translateY(-5px) scale(1.1);
+    }
+    
+    .card-icon {
+        transition: transform 0.3s ease;
+    }
+    
+    @keyframes float {
+        0% {
+            transform: translateY(0px);
+        }
+        50% {
+            transform: translateY(-10px);
+        }
+        100% {
+            transform: translateY(0px);
+        }
+    }
+    
+    @keyframes pulse {
+        0% {
+            transform: scale(1);
+            opacity: 1;
+        }
+        50% {
+            transform: scale(1.05);
+            opacity: 0.8;
+        }
+        100% {
+            transform: scale(1);
+            opacity: 1;
+        }
+    }
+    
+    .card:nth-child(1) {
+        animation: float 6s ease-in-out infinite;
+    }
+    
+    .card:nth-child(2) {
+        animation: float 7s ease-in-out infinite;
+    }
+    
+    .card:nth-child(3) {
+        animation: float 8s ease-in-out infinite;
+    }
+    
+    .card:nth-child(4) {
+        animation: float 9s ease-in-out infinite;
+    }
+    
+    .card::before {
+        content: '';
+        position: absolute;
+        top: -2px;
+        left: -2px;
+        right: -2px;
+        bottom: -2px;
+        background: linear-gradient(45deg, #ff0066, #6600ff, #00ffcc, #ffcc00);
+        z-index: -1;
+        border-radius: inherit;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+    
+    .card:hover::before {
+        opacity: 0.5;
+        animation: borderRotate 2s linear infinite;
+    }
+    
+    @keyframes borderRotate {
+        0% {
+            background-position: 0% 50%;
+        }
+        50% {
+            background-position: 100% 50%;
+        }
+        100% {
+            background-position: 0% 50%;
+        }
+    }
+</style>
+<script>
+    // Initial load animation with staggered delay
+    document.addEventListener('DOMContentLoaded', () => {
+        const cards = document.querySelectorAll('.card');
+        
+        setTimeout(() => {
+            cards.forEach((card, index) => {
+                setTimeout(() => {
+                    card.classList.add('show');
+                }, index * 150);
+            });
+        }, 500);
+    });
+    
+    // Scroll animation
+    window.addEventListener('scroll', () => {
+        const cards = document.querySelectorAll('.card');
+        const triggerBottom = window.innerHeight * 0.8;
+        
+        cards.forEach(card => {
+            const cardTop = card.getBoundingClientRect().top;
+            if (cardTop < triggerBottom) {
+                card.classList.add('show');
+            }
+        });
+        
+        // Adjust parallax effect based on scroll position
+        const parallaxContainer = document.querySelector('.parallax-container');
+        const homeSection = document.getElementById('home');
+        const scrollPosition = window.pageYOffset;
+        const sectionHeight = homeSection.offsetHeight;
+        
+        // Only apply parallax effect while the hero section is visible
+        if (scrollPosition <= sectionHeight) {
+            parallaxContainer.style.transform = `translateY(0)`;
+            parallaxContainer.style.opacity = 1 - (scrollPosition / sectionHeight);
+        } else {
+            parallaxContainer.style.opacity = 0;
+        }
+    });
+    
+    // Advanced hover effects
+    const cards = document.querySelectorAll('.card');
+    
+    cards.forEach(card => {
+        card.addEventListener('mousemove', (e) => {
+            let rect = card.getBoundingClientRect();
+            let x = e.clientX - rect.left;
+            let y = e.clientY - rect.top;
+            
+            let centerX = rect.width / 2;
+            let centerY = rect.height / 2;
+            
+            let angleX = (centerY - y) / 15;
+            let angleY = (x - centerX) / 15;
+            
+            card.style.transform = `perspective(1000px) rotateX(${angleX}deg) rotateY(${angleY}deg) scale3d(1.05, 1.05, 1.05)`;
+        });
+        
+        card.addEventListener('mouseleave', () => {
+            card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale3d(1, 1, 1)';
+            setTimeout(() => {
+                card.style.transition = 'transform 0.5s ease';
+            }, 100);
+        });
+        
+        card.addEventListener('mouseenter', () => {
+            card.style.transition = 'transform 0.1s ease';
+        });
+    });
+</script>
 <!-- About Us Section -->
-<section id="about" class="py-20">
+<section id="about" class="py-20 bg-black">
     <div class="container mx-auto px-6">
         <h2 class="about-us text-4xl font-bold text-center mb-12 text-white opacity-0 transform scale-90">
             Our Story
         </h2>
         <div class="flex flex-col md:flex-row items-center">
-            <div class="md:w-1/2 md:pr-6">
-               
-                
-                <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-                <script>
-                    gsap.to(".about-us", {
-                        opacity: 1,
-                        scale: 1,
-                        duration: 1,
-                        ease: "power2.out",
-                        delay: 0.3
-                    });
-                </script>
-                
-                
-                <p class="text-xl text-white mb-6 animate-fade-in text-justify ">
-                    <span class="font-bold text-2xl font-sans">The Story of a  Universe Beyond Sustainability</span>
+            <!-- Left Side - Text -->
+            <div class="md:w-1/2 md:pr-6 bg-black p-6 rounded-lg">
+                <p class="text-xl text-white mb-6 animate-fade-in text-justify">
+                    <span class="font-bold text-2xl font-sans">The Story of a Universe Beyond Sustainability</span>
                     <br>In a world where sustainability is no longer enough, <span class="font-semibold">ErthaLoka</span> emerges as a regenerative ecosystem - a universe that goes beyond sustaining life to thriving in harmony with nature.
                 </p>
-                <p class="text-l font-sans text-xl text-white animate-fade-in  font text-justify">
+                <p class="text-l font-sans text-xl text-white animate-fade-in text-justify">
                     It is a living system where technology, nature, and communities merge to create self-sufficient, purpose-driven habitats. From sustainable villages to circular economies, from regenerative agriculture to lifelong learning spaces, every aspect of <span class="font-semibold">ErthaLoka</span> is designed to create impact.
                 </p>
                 <p class="text-l text-xl text-white animate-fade-in text-justify mt-4">
                     This is not just a vision; it is a movement. A new way of life where people don’t just survive, but thrive together.
                 </p>
-                
-                
             </div>
-            <div class="md:w-1/2 md:pl-6 order-1 md:order-2 mt-12 md:mt-4 ">
-                <img src="assets/images/about-us.jpg" alt="About-Us-image" class="w-full h-full object-cover">
+
+            <!-- Right Side - Image -->
+            <div class="md:w-1/2 md:pl-6 order-1 md:order-2 mt-12 md:mt-0">
+                <img src="assets/images/about-us.jpg" alt="About Us Image" class="w-full h-full object-cover rounded-lg">
             </div>
-                
-                
         </div>   
-        </div>
-      </div>
     </div>
 </section>
+
+<!-- GSAP Animation -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script>
+    gsap.to(".about-us", {
+        opacity: 1,
+        scale: 1,
+        duration: 1,
+        ease: "power2.out",
+        delay: 0.3
+    });
+</script>
+
  <!-- what we do Section -->
 <section id="ecosystem" class="py-20 bg-dark-green text-white">
     <div class="container mx-auto px-6">
@@ -393,7 +617,7 @@
     <!-- Community Section -->
 
     <!-- Events Section -->
-    <section id="events" class="py-20 bg-[#0a2a17]">
+    <section id="events" class="py-20 ">
     <div class="container mx-auto px-6">
         <h2 class="text-4xl font-bold text-center mb-16 text-white animate-fade-in">🌱 Upcoming Events</h2>
         
@@ -593,6 +817,7 @@
     
     #erthalokaTeam {
         padding: 6rem 0;
+        
     }
     
     h2 {
@@ -905,7 +1130,7 @@
 
 
     <!-- Contact & FAQ Section -->
-    <section id="contact" class="py-20 bg-[#0a2a17] text-white">
+    <section id="contact" class="py-20  text-white">
         <div class="container mx-auto px-6">
             <div class="grid md:grid-cols-2 gap-12">
                 <!-- Contact Information -->
